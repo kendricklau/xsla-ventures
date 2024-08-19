@@ -6,15 +6,21 @@
     <title>XSLA Ventures - About</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body class="bg-black text-white min-h-screen flex flex-col">
-
     <!-- Header -->
-    <header class="bg-black">
+    <header class="bg-black w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-center items-center py-6">
                 <!-- Centered Menu Bar -->
-                <nav class="flex space-x-10">
+                <nav class="flex space-x-6 sm:space-x-8 lg:space-x-10 w-full justify-center">
                     <a href="index.html" class="text-base font-medium text-gray-300 hover:text-gray-400 px-8">Home</a>
                     <a href="about.html" class="text-base font-medium text-gray-300 hover:text-gray-400 px-8">About</a>
                     <a href="contact.html" class="text-base font-medium text-gray-300 hover:text-gray-400 px-8">Contact</a>
@@ -24,19 +30,19 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow flex flex-col items-center ">
+    <main class="flex-grow flex flex-col items-center w-full">
         <div class="pt-20 md:pt-56 text-center">
             <h1 class="text-7xl font-bold mb-12 first-letter tracking-wide">About</h1>
         </div>
 
         <!-- Horizontal Sections -->
-        <div class="w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-start justify-center space-y-12 md:space-y-0 md:space-x-8">
+        <div class="w-full max-w-6xl pb-20 md:pb-56 px-4 sm:px-6 lg:px-8">
+            <div class="w-full flex flex-col md:flex-row items-start justify-center space-y-12 md:space-y-0 md:space-x-8">
                 <!-- Who Are We Section -->
-                <section class="flex-1">
+                <section class="w-full flex-1">
                     <h2 class="text-2xl font-bold mb-4 tracking-wide">People</h2>
                     <p class="text-md text-gray-300 pb-4">
-                        XSLA Ventures is an angel investment fund led by Tesla Alumni, Kendrick Lau '24.
+                        XSLA Ventures is an angel investment fund led by Tesla Alumni, Kendrick Lau.<a href="https://www.linkedin.com/in/kendrick-lau" target="_blank" class="ml-2"><i class="fab fa-linkedin text-gray-300 hover:text-gray-400"></i></a>
                     </p>
                     <p class="text-md text-gray-300">
                         Prior investments made in xAI, SpaceX, LAUNCH4, and Deep Sentinel.
@@ -44,7 +50,7 @@
                 </section>
 
                 <!-- Mission Purpose Section -->
-                <section class="flex-1">
+                <section class="w-full flex-1">
                     <h2 class="text-2xl font-bold mb-4 tracking-wide">Mission</h2>
                     <p class="text-md text-gray-300 pb-4">
                         As Tesla undergoes regular talent transitions, many of these skilled individuals are venturing into or joining innovative startups in adjacent industries.
@@ -55,7 +61,7 @@
                 </section>
 
                 <!-- Our Contributions Section -->
-                <section class="flex-1">
+                <section class="w-full flex-1">
                     <h2 class="text-2xl font-bold mb-4 tracking-wide">Contributions</h2>
                     <p class="text-md text-gray-300 pb-4">
                         XSLA Ventures provides early-stage capital and access to a vast network of Tesla alumni, all of whom have gone through the same rigourous experience at Tesla. We’re ready to bridge connections, offer technical expertise, and drive your mission forward.
@@ -75,7 +81,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-gray-700 text-sm text-center py-4">
+    <footer class="bg-black text-gray-700 text-sm text-center py-4 w-full">
         <p>XSLA Ventures LLC</p>
     </footer>
 
