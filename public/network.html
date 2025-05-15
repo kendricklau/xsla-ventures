@@ -30,11 +30,13 @@
     </script>
     
     <style>
-        body {
+        html, body {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 100%;
             overflow: hidden;
+            position: fixed;
+            width: 100%;
         }
         
         .form-container {
@@ -42,8 +44,10 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 1.25rem;
-            height: calc(100vh - 90px); /* Adjusted for consistent margins */
+            height: calc(100% - 90px);
             margin-top: 1.25rem;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
         }
         
         #form-iframe {
