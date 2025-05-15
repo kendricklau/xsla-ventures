@@ -3,7 +3,7 @@
     --secondary-color: #2C2C2C;
     --background-color: #FFFFFF;
     --spacing-unit: 1rem;
-    --container-width: 500px;
+    --container-width: 600px;
     --section-spacing: 1.5rem;
 }
 
@@ -24,17 +24,20 @@ body {
 /* Header Styles */
 .main-header {
     background-color: white;
-    padding: 1.25rem 0;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,17 +90,18 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.75rem);
     margin-bottom: 0.5rem;
+    line-height: 1.2;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
     margin-bottom: 0.75rem;
 }
 
 h3 {
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     margin-bottom: 0.5rem;
 }
 
@@ -179,19 +183,75 @@ section:last-child {
 }
 
 /* Portfolio Section */
-.portfolio-list {
-    list-style: none;
-    font-size: 1rem;
-    line-height: 1.75;
+.portfolio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
-.portfolio-list li {
-    margin-bottom: 0.25rem;
-}
-
-.portfolio-more {
-    color: var(--secondary-color);
+.portfolio-item {
     font-size: 0.875rem;
+    color: var(--secondary-color);
+}
+
+.portfolio-item a {
+    color: var(--main-color);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.portfolio-item a:hover {
+    opacity: 0.7;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+        margin-top: 1rem;
+    }
+
+    .header-content {
+        padding: 0 1rem;
+    }
+
+    .logo-image {
+        height: 1.75rem;
+    }
+
+    .network-link {
+        font-size: 0.875rem;
+    }
+
+    .about-content {
+        gap: 1.5rem;
+    }
+
+    .portfolio-content {
+        gap: 1rem;
+    }
+
+    .contact-content {
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .header-content {
+        padding: 0 0.75rem;
+    }
+
+    .logo-image {
+        height: 1.5rem;
+    }
+
+    .network-link {
+        font-size: 0.75rem;
+    }
 }
 
 /* Contact Section */
@@ -243,13 +303,13 @@ section:last-child {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     :root {
         --section-spacing: 1.5rem;
     }
 
     .container {
-        padding: 0 1rem;
+        padding: 0 1.25rem;
         margin-top: 1.5rem;
     }
 
@@ -263,6 +323,12 @@ section:last-child {
 
     .about-content {
         gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
     }
 }
 
