@@ -119,6 +119,22 @@ p {
     margin-bottom: 0.5rem;
 }
 
+.title-action {
+    margin-top: 1.5rem;
+}
+
+.title-action a {
+    color: var(--main-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.title-action a:hover {
+    opacity: 0.5;
+}
+
 .about-subtitle {
     color: var(--secondary-color);
     font-size: 0.875rem;
