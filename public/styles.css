@@ -71,6 +71,17 @@ body {
     display: block;
 }
 
+.join-subtitle {
+    color: var(--secondary-color);
+    font-size: 0.65rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 1em;
+    line-height: 1.2;
+    white-space: nowrap;
+    display: block;
+}
+
 .pronunciation a {
     color: inherit;
     text-decoration: none;
@@ -218,12 +229,6 @@ section:last-child {
     vertical-align: middle;
 }
 
-.about-item p {
-    font-size: 0.875rem;
-    color: var(--secondary-color);
-    margin-bottom: 0;
-}
-
 /* Portfolio Section */
 .portfolio-content {
     display: flex;
@@ -239,13 +244,6 @@ section:last-child {
 .portfolio-item p {
     font-size: 0.875rem;
     margin-bottom: 0;
-}
-
-.about-item a {
-    color: var(--main-color);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
 }
 
 .about-item a:hover {
@@ -411,4 +409,50 @@ section:last-child {
     max-width: 1000px;
     display: block;
     margin: 0 auto;
+} 
+
+/* Shared item title style for about and portfolio sections */
+.item-title {
+    margin-bottom: .3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--main-color);
+    text-decoration: none;
+    display: inline-block;
+}
+.about-item h3 {
+    margin-bottom: .4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--main-color);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.about-item a {
+    margin-bottom: .3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--main-color);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.about-content,
+.portfolio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-item p,
+.portfolio-item p {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+    margin-bottom: 0;
+}
+
+/* Remove extra margin from h3 globally */
+h3 {
+    margin-bottom: 0;
 } 
