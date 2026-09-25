@@ -1,3 +1,6 @@
 # Ignore all hidden files (dotfiles), except .gitignore
 .*
 !.gitignore
+
+# macOS metadata files
+.DS_Store
