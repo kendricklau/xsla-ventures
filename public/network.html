@@ -45,6 +45,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
+    <link rel="stylesheet" href="./styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Google Analytics -->
@@ -57,17 +58,10 @@
     </script>
     
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: 'Inter', sans-serif;
-            background: white;
-            color: #000;
         }
         
         body {
@@ -75,20 +69,27 @@
             flex-direction: column;
         }
         
-        .header {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+        .main-header {
+            flex-shrink: 0;
         }
         
-        .logo-img {
-            height: 2rem;
-        }
-        
-        .main-content {
+        .form-container {
             flex: 1;
             display: flex;
             flex-direction: column;
             min-height: 0;
+            overflow: hidden;
+        }
+        
+        .form-header {
+            padding: 2rem 1.5rem 1rem;
+            text-align: center;
+        }
+        
+        .form-header h1 {
+            margin: 0;
+            font-size: clamp(1.75rem, 4vw, 2rem);
+            font-weight: 500;
         }
         
         .progress-bar {
@@ -120,10 +121,11 @@
             font-size: 0.875rem;
             color: rgba(0, 0, 0, 0.5);
             margin-bottom: 1rem;
+            font-weight: 400;
         }
         
         .q-title {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 500;
             margin: 0 0 0.5rem 0;
             line-height: 1.3;
@@ -148,11 +150,14 @@
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
             border: 2px solid rgba(0, 0, 0, 0.2);
+            border-radius: 0;
             background: white;
             transition: border-color 0.2s;
+            -webkit-appearance: none;
         }
         
-        input:focus {
+        input[type="text"]:focus,
+        input[type="email"]:focus {
             outline: none;
             border-color: #000;
         }
@@ -242,6 +247,10 @@
             color: #fff;
         }
         
+        .btn-primary:hover:not(:disabled) {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
         .fallback {
             margin-top: 2rem;
             text-align: center;
@@ -259,7 +268,7 @@
         }
         
         .thank-you h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
             font-weight: 500;
             margin-bottom: 1rem;
         }
@@ -271,6 +280,14 @@
         }
         
         @media (max-width: 768px) {
+            .form-header {
+                padding: 1.5rem 1rem 0.75rem;
+            }
+            
+            .form-area {
+                padding: 1.5rem 1rem;
+            }
+            
             .q-title {
                 font-size: 1.5rem;
             }
@@ -286,18 +303,22 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div>
-            <a href="./">
-                <img src="./images/xsla-ventures-logo.png" alt="XSLA Ventures" class="logo-img">
-            </a>
-            <div style="color: #2C2C2C; font-size: 0.65rem; font-weight: 300; font-style: italic; margin-top: 0.25rem;">
-                Pronounced <a href="https://ipa-reader.com/?text=%2Fˈ%C9%9Bks.l%C9%99%2F" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">/ˈɛks.lə/</a> — think "ex-Tesla", but leaner.
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="./">
+                    <img src="./images/xsla-ventures-logo.png" alt="XSLA Ventures" class="logo-image">
+                </a>
+                <div class="pronunciation">Pronounced <a href="https://ipa-reader.com/?text=%2Fˈ%C9%9Bks.l%C9%99%2F" target="_blank" rel="noopener">/ˈɛks.lə/</a> — think "ex-Tesla", but leaner.</div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div class="main-content">
+    <main class="form-container">
+        <div class="form-header">
+            <h1>Join the XSLA Ventures Network</h1>
+        </div>
+        
         <div class="progress-bar">
             <div class="progress-fill" id="progress" style="width: 0%"></div>
         </div>
@@ -305,7 +326,7 @@
         <div class="form-area">
             <div class="question-wrap" id="content"></div>
         </div>
-    </div>
+    </main>
 
     <script>
         const data = {
@@ -322,7 +343,7 @@
               options: ['Tesla', 'SpaceX', 'X', 'xAI', 'NeuraLink', 'Other'] },
             { id: 'department', type: 'text', title: 'What department were/are you affiliated with?', entry: 'entry.172706529' },
             { id: 'accreditedInvestor', type: 'radio', title: 'Are you an accredited investor?', entry: 'entry.53141783',
-              description: '<strong>Important:</strong> You must self-identify as an accredited investor to receive <u>investment deals</u> from XSLA Ventures.<br><br><a href="https://www.sec.gov/resources-small-businesses/capital-raising-building-blocks/accredited-investors" target="_blank">SEC.gov - Accredited Investors</a><br><br><em>Financial Criteria: Net worth over $1 million, excluding primary residence (individually or with spouse or partner). Or income over $200,000 (individually) or $300,000 (with spouse or partner) in each of the prior two years, and reasonably expects the same for the current year.</em>',
+              description: '<strong>Important:</strong> You must self-identify as an accredited investor to receive <u>investment deals</u> from XSLA Ventures.<br><br><a href="https://www.sec.gov/resources-small-businesses/capital-raising-building-blocks/accredited-investors" target="_blank" rel="noopener">SEC.gov - Accredited Investors</a><br><br><em>Financial Criteria: Net worth over $1 million, excluding primary residence (individually or with spouse or partner). Or income over $200,000 (individually) or $300,000 (with spouse or partner) in each of the prior two years, and reasonably expects the same for the current year.</em>',
               options: ['Yes', 'No', 'Decline to Answer / Not Sure'] },
             { id: 'checkSize', type: 'radio', title: "If you are an accredited investor, what's your expected or desired check size to invest into startups?", entry: 'entry.569483976',
               options: ['$1k - $5k', '$5k - $10k', '$10k - $25k', 'More than $25k', 'Decline to Answer / Not Sure'] },
@@ -352,18 +373,18 @@
             
             if (q.type === 'text' || q.type === 'email') {
                 html += `
-                    <input type="${q.type}" id="inp" value="${data[q.id]}" placeholder="Type your answer here...">
+                    <input type="${q.type}" id="inp" value="${data[q.id] || ''}" placeholder="Type your answer here...">
                     <div class="error-msg" id="err">${q.type === 'email' ? 'Please enter a valid email' : 'This field is required'}</div>
                 `;
             } else if (q.type === 'radio') {
-                html += '<div class="radio-group">';
+                html += '<div class="radio-group" id="radioGroup">';
                 q.options.forEach((opt, i) => {
                     const sel = data[q.id] === opt ? 'selected' : '';
                     const chk = data[q.id] === opt ? 'checked' : '';
                     html += `
-                        <div class="radio-opt ${sel}" onclick="selectRadio('${opt}')">
-                            <input type="radio" name="q" value="${opt}" ${chk}>
-                            <label>${opt}</label>
+                        <div class="radio-opt ${sel}" data-index="${i}">
+                            <input type="radio" id="radio-${i}" name="q" value="${opt}" ${chk}>
+                            <label for="radio-${i}">${opt}</label>
                         </div>
                     `;
                 });
@@ -372,10 +393,10 @@
             
             html += `
                 <div class="btn-group">
-                    ${current > 0 ? '<button class="btn" onclick="goBack()">Back</button>' : ''}
-                    <button class="btn btn-primary" onclick="goNext()">${current === questions.length - 1 ? 'Submit' : 'Next'}</button>
+                    ${current > 0 ? '<button class="btn" id="backBtn">Back</button>' : ''}
+                    <button class="btn btn-primary" id="nextBtn">${current === questions.length - 1 ? 'Submit' : 'Next'}</button>
                 </div>
-                <div class="fallback">Having trouble? <a href="https://docs.google.com/forms/d/e/1FAIpQLSelv7kxqWAIFSjcdKiSpOg-Bh-uGmpnftLTesG_y1OlFcYq7g/viewform" target="_blank">Use the original form</a></div>
+                <div class="fallback">Having trouble? <a href="https://docs.google.com/forms/d/e/1FAIpQLSelv7kxqWAIFSjcdKiSpOg-Bh-uGmpnftLTesG_y1OlFcYq7g/viewform" target="_blank" rel="noopener">Use the original form</a></div>
             `;
             
             document.getElementById('content').innerHTML = html;
@@ -389,15 +410,49 @@
                     document.getElementById('err').classList.remove('show');
                 };
                 inp.onkeypress = (e) => {
-                    if (e.key === 'Enter') goNext();
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        goNext();
+                    }
                 };
+            } else if (q.type === 'radio') {
+                const radioGroup = document.getElementById('radioGroup');
+                const radioOpts = radioGroup.querySelectorAll('.radio-opt');
+                
+                radioOpts.forEach((opt, i) => {
+                    opt.addEventListener('click', () => {
+                        radioOpts.forEach(o => o.classList.remove('selected'));
+                        opt.classList.add('selected');
+                        const radio = opt.querySelector('input[type="radio"]');
+                        radio.checked = true;
+                        data[q.id] = q.options[i];
+                        setTimeout(goNext, 200);
+                    });
+                });
+                
+                // Add keyboard support for radio questions
+                radioGroup.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' && data[q.id]) {
+                        e.preventDefault();
+                        goNext();
+                    }
+                });
+                
+                // Focus the first radio button for keyboard accessibility
+                const firstRadio = radioGroup.querySelector('input[type="radio"]');
+                if (firstRadio) {
+                    firstRadio.focus();
+                }
             }
-        }
-
-        function selectRadio(val) {
-            const q = questions[current];
-            data[q.id] = val;
-            setTimeout(goNext, 200);
+            
+            // Attach event listeners to buttons
+            const nextBtn = document.getElementById('nextBtn');
+            nextBtn.addEventListener('click', goNext);
+            
+            const backBtn = document.getElementById('backBtn');
+            if (backBtn) {
+                backBtn.addEventListener('click', goBack);
+            }
         }
 
         function goNext() {
@@ -438,6 +493,10 @@
         }
 
         function submit() {
+            const nextBtn = document.getElementById('nextBtn');
+            nextBtn.disabled = true;
+            nextBtn.textContent = 'Submitting...';
+            
             const url = 'https://docs.google.com/forms/d/e/1FAIpQLSelv7kxqWAIFSjcdKiSpOg-Bh-uGmpnftLTesG_y1OlFcYq7g/formResponse';
             const form = new FormData();
             
